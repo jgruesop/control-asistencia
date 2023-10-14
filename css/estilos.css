@@ -63,7 +63,7 @@ body {
 	display: none;	
 }
 .contenedor-radio,
-.contenedor-ausentismo {
+.contenedor-ausentismo.activo {
 	display: grid;
 	grid-template-columns: repeat(
 		auto-fit, 
@@ -136,14 +136,14 @@ button {
 	color: var(--secundario);
 }
 
-/* Autorización */
+/* Autenticación */
 .auth {
 	display: none;
 }
 .auth.activo {
 	display: grid;
 	place-items: center;
-	width: 50vh;
+	width: auto;
 }
 
 /* Utilidades */
