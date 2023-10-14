@@ -21,7 +21,6 @@ body {
 
 .contenedor {
 	width: auto;
-	max-width: auto;
 	border-radius: 10px;
 	overflow: hidden;
 	box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
@@ -32,12 +31,16 @@ body {
 	grid-template-columns: 1fr;
 }
 .margen {
-	padding: 40px;
+	width: auto;
+	padding: 1rem;
 	display: grid;	
 }
 @media (width <= 780px) {	
+	.contenedor {		
+		max-width: 95%;
+	}
 	.margen {		
-		width: auto;	
+		width: 10%;	
 		place-items: center;	
 	}
 }
@@ -98,7 +101,7 @@ body {
 	width: 1rem;
 	border: .2rem solid var(--secundario);;
 	border-radius: 50%;
-	margin-right: .5rem;
+	margin-right: .2rem;
 }
 input[type="radio"]:checked + .label-radio{
 	background-color: var(--primario);
@@ -141,13 +144,19 @@ input[type="radio"] {
 .contenedor-ausentismo.activo {
 	display: block;
 }
-@media (width <= 780px) {	
-	
+@media (width <= 780px) {		
 	.label-radio,
 	.label-ausentismo {
 		width: auto;
-		height: 20%;
+		height: auto;
 		justify-content: left;
+	}
+}
+@media (width <= 480px) {		
+	.label-radio,
+	.label-ausentismo {
+		height: auto;
+		width: auto;
 	}
 }
 .registro {
@@ -157,7 +166,16 @@ input[type="radio"] {
 .registro.activo {
 	display: block;
 }
-
+@media (width <= 480px) {
+	.registro {	
+		width: 22rem;		
+	}
+	.label-radio:before, 
+	.label-ausentismo:before {
+		width: 1rem;				
+		margin: auto;
+	}
+}
 .exito {
 	display: none;
 	height: 100%;
