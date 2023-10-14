@@ -17,7 +17,7 @@
 		<div class="margen">
 			<div class="auth ">
 				<!--Add buttons to initiate auth-->
-				<button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
+				<button id="authorize_button" onclick="handleAuthClick()">Autenticación Google</button>
 			</div>
 			<div class="registro activo" id="registro">
 				<div class="header">
@@ -58,7 +58,7 @@
 						<label class="label-radio" for="ausentismo">Ausentismo</label>						
 					</div>
 
-					<div class="contenedor-ausentismo">
+					<div class="contenedor-ausentismo activo">
 						<input type="radio" id="cita" name="ausentismo" checked="checked">
 						<label class="label-ausentismo" for="cita">Cita médica</label>
 						
@@ -69,7 +69,7 @@
 						<label class="label-ausentismo" for="personal">Personal</label>
 						
 						<input type="radio" id="calamidad" name="ausentismo">
-						<label class="label-ausentismo" for="calamidad">Calamidad domestica</label>
+						<label class="label-ausentismo calamidad" for="calamidad">Calamidad domestica</label>
 					</div>
 
 					<div class="mensaje">
@@ -90,7 +90,7 @@
 
 					<div class="contenedor-boton sign-out">	
 						<!--Add buttons to sign out-->					
-						<button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
+						<button id="signout_button" onclick="handleSignoutClick()">Salir</button>
 					</div>
 				</form>
 			</div>
