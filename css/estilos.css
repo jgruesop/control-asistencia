@@ -8,40 +8,39 @@
 	margin: 0;
 	box-sizing: border-box;
 }
-
 body {
 	background: #F0F4F3;
 	font-family: 'Quicksand', sans-serif;
-
 	min-height: 100vh;
 	display: flex;
 	align-items: center;
 	justify-content: center;
+	background-image: url('https://images.unsplash.com/photo-1542751110-97427bbecf20?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1984&q=80');
+	background-size: cover;
 }
 
 .contenedor {
-	width: 90%;
-	max-width: 800px;
+	width: auto;
+	max-width: auto;
 	border-radius: 10px;
 	overflow: hidden;
 	box-shadow: rgba(17, 12, 46, 0.15) 0px 48px 100px 0px;
 	background: #fff;
-	min-height: 60vh;
-
+	min-height: 50vh;
+	
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-columns: 1fr;
 }
-
-.columna-izquierda {
+.margen {
 	padding: 40px;
+	display: grid;	
 }
-
-.columna-derecha {
-	background-image: url('https://images.unsplash.com/photo-1542751110-97427bbecf20?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1984&q=80');
-	background-size: cover;
-	background-position-x: center;
+@media (width <= 780px) {	
+	.margen {		
+		width: auto;	
+		place-items: center;	
+	}
 }
-
 .header {
 	margin-bottom: 40px;
 	text-align: center;
@@ -55,20 +54,104 @@ body {
 	color: var(--secundario);
 }
 
-label {
-	margin-bottom: 10px;
+.auth {
+	display: none;
+}
+.auth.activo {
 	display: block;
+}
+
+.label-text {
+	margin-bottom: .5rem;
+	display: block;	
 	font-weight: 500;
 	color: var(--secundario);
 	font-size: 14px;
 }
+.contenedor-radio {
+	display: flex;
+	flex-direction: row;
+	justify-content: left;
+	margin-bottom: 1rem;
+}
+.contenedor-ausentismo {
+	display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+.label-radio, 
+.label-ausentismo {
+	position: relative;
+	color: #030705;
+	font-size: 1rem;
+	border: .1rem solid var(--secundario);
+	padding: .5rem;
+	margin: .5rem;
+	display: flex;
+	min-width: 13%;
+	cursor: pointer;
+}
+.label-radio:before, 
+.label-ausentismo:before {
+	content: "";
+	height: 1rem;
+	width: 1rem;
+	border: .2rem solid var(--secundario);;
+	border-radius: 50%;
+	margin-right: .5rem;
+}
+input[type="radio"]:checked + .label-radio{
+	background-color: var(--primario);
+	color: white;
+}
+input[type="radio"]:checked + .label-radio:before {
+	height: 1rem;
+	width: 1rem;
+	border: .22rem solid white;
+	color: white;
+	/* background-color: var(--primario); */
+}
 
+input[type="radio"]:checked + .label-ausentismo {
+	background-color: var(--primario);
+	color: white;
+}
+
+input[type="radio"]:checked + .label-ausentismo:before {
+	height: 1rem;
+	width: 1rem;
+	border: .22rem solid white;
+	color: white;
+	/* background-color: var(--primario); */
+}
+.textarea {
+	height: 6rem;
+	width: 19rem;
+}
 .contenedor-input {
 	position: relative;
 }
 
-.registro {
+input[type="radio"] {
 	display: none;
+}
+.contenedor-ausentismo {
+	display: none;	
+}
+.contenedor-ausentismo.activo {
+	display: block;
+}
+@media (width <= 780px) {	
+	
+	.label-radio,
+	.label-ausentismo {
+		width: auto;
+		height: 20%;
+		justify-content: left;
+	}
+}
+.registro {
+	display: none;	
 }
 
 .registro.activo {
@@ -95,25 +178,41 @@ label {
 }
 
 
-input {
-	height: 50px;
-	line-height: 50px;
-	font-size: 16px;
+input[type="text"] {
+	height: 3rem;
+	line-height: 1rem;
+	font-size: 1rem;
 	width: 100%;
 	border: none;
-	border-radius: 5px;
-	padding: 0 20px 0 45px;
-	margin-bottom: 20px;
+	border-radius: .5rem;
+	padding: 0 3rem 0 2.5rem;
+	margin-bottom: 1rem;
 	background: #f4f8f7;
 	color: var(--primario);
 	font-family: 'Quicksand', sans-serif;
-	border: 2px solid transparent;
+	border: .7rem solid transparent;
 	transition: .3s ease all;
 }
-
-input:focus {
+.mensaje {
+	width: auto;
+}
+textarea {
+	resize: none;	
+	height: 6rem;
+	line-height: 1.2rem;
+	font-size: 1rem;
+	width: 100%;
+	border: none;	
+	padding: 1rem .5rem;
+	background: #f4f8f7;
+	color: var(--primario);
+	font-family: 'Quicksand', sans-serif;
+	border: .5rem solid transparent;
+	transition: .3s ease all;
+}
+input:focus, textarea:focus {
 	outline: none;
-	border: 2px solid var(--primario);
+	border: .2rem solid var(--primario);
 }
 
 .contenedor-input svg {

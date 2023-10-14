@@ -14,14 +14,17 @@
 
 <body>
 	<div class="contenedor">
-		<div class="columna-izquierda">
+		<div class="margen">
+			<div class="auth ">
+				<!--Add buttons to initiate auth-->
+				<button id="authorize_button" onclick="handleAuthClick()">Authorize</button>
+			</div>
 			<div class="registro activo" id="registro">
 				<div class="header">
-					<h1>¡Control Asistencia!</h1>
+					<h1>¡Control de Asistencia!</h1>
 				</div>
-
 				<form class="formulario" id="formulario">
-					<label for="nombre">Nombre</label>
+					<label class="label-texto" for="nombre">Número Documento</label>
 					<div class="contenedor-input">
 						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
 							class="bi bi-person-circle" viewBox="0 0 16 16">
@@ -29,57 +32,49 @@
 							<path fill-rule="evenodd"
 								d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
 						</svg>
-						<input type="text" id="nombre" name="nombre" placeholder="Pete Michell"  onkeyup="buscarOpcion()">
-
-						<select id="opciones contenedor-input">
-							<option value="opcion1">Opción 1</option>
-							<option value="opcion2">Opción 2</option>
-							<option value="opcion3">Opción 3</option>
-							<option value="opcion4">Opción 4</option>
-							<option value="opcion5">Opción 5</option>
-						  </select>
+						<input type="text" id="nombre" name="nombre" placeholder="Ingrese su número documento"
+							onkeyup="buscarOpcion()">
 					</div>
 
-					<label for="checkbox">Ingreso</label>
-					<div class="contenedor-radio">
-						<input type="radio" id="radio" name="radio">
+					<label class="label-texto" for="nombre">Nombre</label>
+					<div class="contenedor-input">
+						<svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+							class="bi bi-person-circle" viewBox="0 0 16 16">
+							<path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z" />
+							<path fill-rule="evenodd"
+								d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z" />
+						</svg>
+						<input type="text" id="nombre" name="nombre">
 					</div>
+					
+					<div class="contenedor-radio">						
+						<input type="radio" id="ingreso" name="radio" checked="checked">
+						<label class="label-radio" for="ingreso">Ingreso</label>
+						
+						<input type="radio" id="salida" name="radio">
+						<label class="label-radio" for="salida">Salida</label>
 
-					<label for="radio">Salida</label>
-					<div class="contenedor-radio">
-						<input type="radio" id="radio" name="radio">
-					</div>
-
-					<label for="radio">Ausentismo</label>
-					<div class="contenedor-radio">
-						<input type="radio" id="radio" name="radio">
+						<input type="radio" id="ausentismo" name="radio">
+						<label class="label-radio" for="ausentismo">Ausentismo</label>						
 					</div>
 
 					<div class="contenedor-ausentismo">
-						<label for="radio">Cita médica</label>
-						<div class="contenedor-radio">
-							<input type="radio" id="radio" name="radio">
-						</div>
+						<input type="radio" id="cita" name="ausentismo" checked="checked">
+						<label class="label-ausentismo" for="cita">Cita médica</label>
+						
+						<input type="radio" id="empresa" name="ausentismo">
+						<label class="label-ausentismo" for="empresa">Empresa</label>
+						
+						<input type="radio" id="personal" name="ausentismo">
+						<label class="label-ausentismo" for="personal">Personal</label>
+						
+						<input type="radio" id="calamidad" name="ausentismo">
+						<label class="label-ausentismo" for="calamidad">Calamidad domestica</label>
+					</div>
 
-						<label for="radio">Empresa</label>
-						<div class="contenedor-radio">
-							<input type="radio" id="radio" name="radio">
-						</div>
-
-						<label for="radio">Personal</label>
-						<div class="contenedor-radio">
-							<input type="radio" id="radio" name="radio">
-						</div>
-
-						<label for="radio">Calamidad domestica</label>
-						<div class="contenedor-radio">
-							<input type="radio" id="radio" name="checkbox">
-						</div>
-
-						<label for="observacion">Observaciones</label>
-						<div class="contenedor-checkbox">
-							<input type="textarea" id="observacion" name="telefono" placeholder="Justifique su salida">
-						</div>
+					<div class="mensaje">
+						<label class="label-texto" for="mensaje">Observaciones</label>
+						<textarea name="mensaje" placeholder="Ingrese su mensaje"></textarea>
 					</div>
 
 					<div class="contenedor-boton">
@@ -92,6 +87,11 @@
 							</svg>
 						</button>
 					</div>
+
+					<div class="contenedor-boton sign-out">	
+						<!--Add buttons to sign out-->					
+						<button id="signout_button" onclick="handleSignoutClick()">Sign Out</button>
+					</div>
 				</form>
 			</div>
 
@@ -103,16 +103,16 @@
 						d="M10.97 4.97a.235.235 0 0 0-.02.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-1.071-1.05z" />
 				</svg>
 				<h1>Registrado!</h1>
-				<p>Te mandaremos un correo electrónico si resultas ganador.</p>
-			</div>
+				<p>Su registro fue enviado exitosamente</p>
+			</div>					
 		</div>
+	</div><!--Contenedor -->
 
-		<div class="columna-derecha">
-
-		</div>
-	</div>
-
-	<script src="js/app.js"></script>
+	<script async defer src="https://apis.google.com/js/api.js" id="gapi"></script>
+	<script async defer src="https://accounts.google.com/gsi/client" id="gis"></script>
+	<script async defer src="js/auth.js"></script>
+	<script async defer src="js/app.js"></script>
+	
 </body>
 
 </html>
