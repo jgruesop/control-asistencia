@@ -64,7 +64,7 @@ function maybeEnableButtons() {
  *  Sign in the user upon button click.
  */
 function handleAuthClick() {
-    try {        
+    try {             
         tokenClient.callback = async (resp) => {
             if (resp.error !== undefined) {
                 throw (resp);
@@ -74,7 +74,7 @@ function handleAuthClick() {
             document.getElementById('authorize_button').innerText = 'Refresh';    
             await getRegistros();
         };
-
+        
         if (gapi.client.getToken() === null) {
             // Prompt the user to select a Google Account and ask for consent to share their data
             // when establishing a new session.
@@ -101,9 +101,3 @@ function handleSignoutClick() {
     }
 }
 
-/**
- *  Sign out if the user reloads the page.
- */
-window.onbeforeunload = function() {
-    gapi.load('client', initializeGapiClient);
-}
